@@ -94,7 +94,7 @@ const config: Config = {
         {to: '/blog', label: 'Userguide & SRS', position: 'left'},
         {to: '/blog', label: 'API Documentation', position: 'left'},
         {
-          href: 'https://github.com/ray5273/docusaurus-example',
+          href: 'https://github.com/ray5273/docusaurus-template',
           label: 'GitHub',
           position: 'right',
         },
