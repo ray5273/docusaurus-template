@@ -26,14 +26,7 @@
       "type": "category",
       "label": "packer-qemu-template",
       "items": [
-        "packer-qemu-template/README",
-        {
-          "type": "category",
-          "label": "sshkey",
-          "items": [
-            "packer-qemu-template/sshkey/README"
-          ]
-        }
+        "packer-qemu-template/README"
       ]
     },
     {
