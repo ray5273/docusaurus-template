@@ -1,0 +1,12 @@
+[submodule "docs/packer-qemu-template"]
+	path = docs/packer-qemu-template
+	url = https://github.com/ray5273/packer-qemu-template
+[submodule "versioned_docs/version-1.0.0/packer-qemu-template"]
+	path = versioned_docs/version-1.0.0/packer-qemu-template
+	url = https://github.com/ray5273/packer-qemu-template
+[submodule "docs/Github-Review-Dashboard-and-Alarm-Bot"]
+	path = docs/Github-Review-Dashboard-and-Alarm-Bot
+	url = https://github.com/ray5273/Github-Review-Dashboard-and-Alarm-Bot.git
+[submodule "versioned_docs/version-1.0.0/Github-Review-Dashboard-and-Alarm-Bot"]
+	path = versioned_docs/version-1.0.0/Github-Review-Dashboard-and-Alarm-Bot
+	url = https://github.com/ray5273/Github-Review-Dashboard-and-Alarm-Bot.git
