@@ -12,6 +12,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
+    "generate-sidebar": "node scripts/createSidebar.cjs",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -25,8 +26,10 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.4.0",
+    "@docusaurus/theme-mermaid": "^3.4.0",
     "@docusaurus/tsconfig": "3.4.0",
     "@docusaurus/types": "3.4.0",
+    "@easyops-cn/docusaurus-search-local": "^0.44.4",
     "typescript": "~5.2.2"
   },
   "browserslist": {

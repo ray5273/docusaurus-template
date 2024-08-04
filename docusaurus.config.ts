@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'My Site',
+  title: 'Docusaurus Template',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -18,8 +18,8 @@ const config: Config = {
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -53,12 +53,32 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+  themes: [
+    // ... Your other themes.
+    '@docusaurus/theme-mermaid',
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        // language: ["en","kr"],
+        // ```
+      }),
+    ],
 
+  ],
+  markdown: {
+    mermaid: true,
+  },
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Docusaurus Template',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -68,13 +88,20 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'ADR & Architecture Design',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: 'Userguide & SRS', position: 'left'},
+        {to: '/blog', label: 'API Documentation', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/ray5273/docusaurus-example',
           label: 'GitHub',
           position: 'right',
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+          dropdownActiveClassDisabled: true,
         },
       ],
     },
@@ -126,6 +153,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['cpp', 'go']
     },
   } satisfies Preset.ThemeConfig,
 };

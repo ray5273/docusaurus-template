@@ -1,41 +1,34 @@
-# Website
+# Docusaurus Template
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This is a template for a Docusaurus site. It is a simple site with a few pages and a blog.
 
-### Installation
+including following features:
 
+1. Create a sidebar with a list of pages based on the files in the `docs` directory.
+2. Added versioned docs example with 1.0.0 version.
+3. Added code highlighting (syntax highlighting) to the code blocks in the markdown files (cpp, golang)
+4. Search functionality (only works in production build and english language)
+
+
+## How to use this template
+
+1. Generate sidebar based on the files in the `docs` directory.
 ```
-$ yarn
+npm run generateSidebar
 ```
+- This will generate a sidebar based on the files in the `docs` directory and save it to the `sidebars.json` file in  root directory.
 
-### Local Development
-
+2. Start the development server.
 ```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+npm run start
 ```
 
-Not using SSH:
-
+3. Build the site.
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+npm run build
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+4. Serve the site.
+```
+npm run serve
+```

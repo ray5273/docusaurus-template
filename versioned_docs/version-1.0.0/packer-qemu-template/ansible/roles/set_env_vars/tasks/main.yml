@@ -1,0 +1,69 @@
+---
+- name: Set environment variable for HTTP Proxy
+  lineinfile:
+    path: /etc/environment
+    line: 'HTTP_PROXY='
+
+- name: Set environment variable for HTTPS Proxy
+  lineinfile:
+    path: /etc/environment
+    line: 'HTTPS_PROXY='
+
+- name: Set environment variable for No Proxy domains
+  lineinfile:
+    path: /etc/environment
+    line: 'NO_PROXY=localhost,127.0.0.1,.your_domain.com'
+
+- name: Set environment variable EXAMPLE_VAR
+  lineinfile:
+    path: /etc/environment
+    line: 'EXAMPLE_VAR=value'
+
+- name: Set the timezone to Asia/Seoul
+  timezone:
+    name: Asia/Seoul
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Update apt cache for Docker
+  apt:
+    update_cache: yes
+
+- name: Install apt-transport-https and ca-certificates
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+    state: present
+
+- name: Add Docker's official GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker apt repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+
+- name: Install Docker
+  apt:
+    name:
+      - docker.io=20.10.21-0ubuntu1~22.04.3
+      - docker
+    state: present
+
+- name: Ensure Docker service is running
+  service:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Install network and nvme binary
+  apt:
+    name:
+      - net-tools
+      - nvme-cli
+    state: present

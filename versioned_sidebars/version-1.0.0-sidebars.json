@@ -1,0 +1,59 @@
+{
+  "tutorialSidebar": [
+    "intro",
+    {
+      "type": "category",
+      "label": "Github-Review-Dashboard-and-Alarm-Bot",
+      "items": [
+        "Github-Review-Dashboard-and-Alarm-Bot/README",
+        {
+          "type": "category",
+          "label": "db_deploy",
+          "items": [
+            "Github-Review-Dashboard-and-Alarm-Bot/db_deploy/README"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "frontend",
+          "items": [
+            "Github-Review-Dashboard-and-Alarm-Bot/frontend/README"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "packer-qemu-template",
+      "items": [
+        "packer-qemu-template/README",
+        {
+          "type": "category",
+          "label": "sshkey",
+          "items": [
+            "packer-qemu-template/sshkey/README"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "tutorial-basics",
+      "items": [
+        "tutorial-basics/congratulations",
+        "tutorial-basics/create-a-blog-post",
+        "tutorial-basics/create-a-document",
+        "tutorial-basics/create-a-page",
+        "tutorial-basics/deploy-your-site"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "tutorial-extras",
+      "items": [
+        "tutorial-extras/manage-docs-versions",
+        "tutorial-extras/translate-your-site"
+      ]
+    }
+  ]
+}
