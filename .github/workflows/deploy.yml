@@ -24,8 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm install --frozen-lockfile
 
+      - name: Generate sidebar for main branch
+        run:
+          npm run generate-sidebar
+
       - name: Build website
-        run: npm build
+        run: npm run build
+
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
