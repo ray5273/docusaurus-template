@@ -28,6 +28,10 @@ jobs:
         run:
           npm run generate-sidebar-adr-architecture
 
+      - name: Generate version 1.1.0
+        run:
+          npm run docusaurus docs:version 1.1.0
+
       - name: Build website
         run: npm run build
 

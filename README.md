@@ -32,3 +32,14 @@ npm run build
 ```
 npm run serve
 ```
+
+## How to add a new version
+
+```bash
+npm run docusaurus docs:version {version}
+```
+
+- This will create a new version of the docs with the specified version number.
+- The new version will be created in the `versioned_docs` directory.
+- The new version will be added to the `versions.json` file in the root directory.
+- The new version will be added to the `versioned_sidebars` file in the root directory.
