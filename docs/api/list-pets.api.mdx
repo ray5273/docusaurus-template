@@ -1,13 +1,13 @@
 ---
-id: create-pet
-title: "Create a pet"
-description: "Creates a new pet in the store."
-sidebar_label: "Create a pet"
+id: list-pets
+title: "List all pets"
+description: "Returns a list of all pets."
+sidebar_label: "List all pets"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVMGO2jAQ/ZXIZzZZVlUPnEpXHJCqLmroCXEwyZB4m9iuPSGLIv69M3EoYdmtqqo5QDJ+82be+NmdyMFnTllURouZeHQgEXwkIw1tZAEjpSMsIfJoHMRiIowFJxm9zAmf9fgVIK04+NmAx88mP4pZJzKjETTyq7S2UlmflTx7LtQJn5VQS37DowWiMrtnyM48ygHRb4SWNYjtRFjHdVGB54w+esn06JQuxGkiUBZvxPmZvBK6Jk0sD00UNFwVRtfAiQPeGu1D0Yf7Kf/d0oT8nOmI5L/IVjkF3tZOS5dkRbUKcATeG1dLDKGPH3gW/zAkHlMNWBreWms8t2UllvSVkDpPnx7cARx1sulE4ypaKRHtLEmkVTG8yNpWEGemTg5TqjXG+HdApJCH8+3inkVAXHb63OTQ+0iL0nvDOO4p7Mg0vo/vGamQKUTac0Xz1VK89sA88uq8yEbIoabdRrI3RGkrC5ps9BDIwNX+aZ+SeJXBRfRYS49JBgfIDEftM3/aWGscT/RqbG3bXk3E/4aRTRQDh8inEYqVk7OArDmuYiWZa+j4pojsV2PjimRI9cmX5ePia7q4o5S4xLoSbADe91rqEXG4FOhOCA6/GuLonP/F5TF4DuEFE1tJpVlJ32o3GG0jeqORKUr2H3133U56+O6q04nD5BJH98uGXg/SKbnjXd5siacEmdNZYGf+gCP3Ezq7W3NVhlcNV785luzTkDHPMrD4R+x2dERWT+mawLvhxqtNzjlOtnyc6Xcm+guTs/uz28c6UUldNLJgbODk5xfjj+E8
-sidebar_class_name: "post api-method"
-info_path: docs/swagger/sample-api
+api: eJyNVE2P2kAM/SvRnGnC0qoHTkUrVCFt21VpT4iDCYbMdiYzO+PwoYj/XjsJSyi72nKBsZ/tZ/uZWq0x5kF70q5UY/UTqQplTCAxOlLiNgkYk3ikmKqBch4DCHK2ZqwgHtnDDg8BLBKGqMaLWpX8aABWE3u1ZH6uMBz5cV3vGxy0rWxSVnaFQeoFjJWhmJDjn0KGYwI+VzogF92AiThQMS/QghrXio5eSumScIuBsRsXLFBr+jhSp9NS4qN3ZcQoEaPhUL6ueUzKBEKAozDwbU+545wlCRa8NzpvOs+eogTUtxSaeOmW0Mae3a2eMKerLhZKr9nQjInp+SCDJd3yY9d7fX3+pE5d+AUaKehyKw6C7Sv27jNQvKjCyQK3SM3uqOBH1rUdMezOe6yCYU9B5MdZBl6neADrDaa5s9nujmv1MfEN0FIUsHFCSTK3A79Lh+mQy5EmIyznTUwyeZzdaGSSRH12iizWaHmZxErEZL6HLc8nGbXJMNj4YzPnFnSOF+p9Rg0m6/YLebPfTq+Sf15574LM5ar5/X5/1Vd8gbEItAA7y5ceSnbBukFWXr+KB5ZOx/imCDTe1IVt1oXG7GF2P/0+n37gkLQga5Rs0btIFspe4ge52PO5/jvF+qLnd468kw3hgTJvgI/31PGsO60sVFOB91owCXnX9Qoi/g7mdBJze+uioLWOsDK9y32T1P/9E7xK7g8ee/82OzCVYBrh7SBoIcBklowsENZ8TcKsDZrkOfp+1M2pS5aXi/k6/cXD/wu/ocPq
+sidebar_class_name: "get api-method"
+info_path: docs/api/sample-api
 custom_edit_url: null
 ---
 
@@ -28,12 +28,12 @@ import TabItem from "@theme/TabItem";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Create a pet"}
+  children={"List all pets"}
 >
 </Heading>
 
 <MethodEndpoint
-  method={"post"}
+  method={"get"}
   path={"/pets"}
 >
   
@@ -41,7 +41,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Creates a new pet in the store.
+Returns a list of all pets.
 
 <Heading
   id={"request"}
@@ -51,83 +51,44 @@ Creates a new pet in the store.
 >
 </Heading>
 
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
+  <summary
+    style={{}}
   >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
     >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"limit","in":"query","description":"Maximum number of results to return","required":false,"schema":{"type":"integer","format":"int32"}}}
       >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        <div
-          style={{"marginTop":"1rem","marginBottom":"1rem"}}
-        >
-          
-          
-          The pet to create
-          
-          
-        </div>
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"name"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"tag"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
   <div>
     <ApiTabs
       label={undefined}
       id={undefined}
     >
       <TabItem
-        label={"201"}
-        value={"201"}
+        label={"200"}
+        value={"200"}
       >
         <div>
           
           
-          The created pet
+          An array of pets
           
           
         </div><div>
@@ -166,7 +127,13 @@ Creates a new pet in the store.
                     </div><ul
                       style={{"marginLeft":"1rem"}}
                     >
-                      <SchemaItem
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
                         collapsible={false}
                         name={"id"}
                         required={true}
@@ -193,7 +160,13 @@ Creates a new pet in the store.
                         schema={{"type":"string"}}
                       >
                         
-                      </SchemaItem>
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
                     </ul>
                   </details>
                 </TabItem><TabItem
@@ -201,7 +174,7 @@ Creates a new pet in the store.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"id\": 0,\n  \"name\": \"string\",\n  \"tag\": \"string\"\n}"}
+                    responseExample={"[\n  {\n    \"id\": 0,\n    \"name\": \"string\",\n    \"tag\": \"string\"\n  }\n]"}
                     language={"json"}
                   >
                     

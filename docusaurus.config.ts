@@ -64,10 +64,10 @@ const config: Config = {
         docsPluginId: "classic", // configured for preset-classic
         config: {
           petstore: {
-            specPath: "resources/swagger_example.yaml",
-            outputDir: "docs/swagger",
+            specPath: "resources/swagger_example.yaml", // path to your spec file
+            outputDir: "docs/api", // path to generated docs
             sidebarOptions: {
-              categoryLinkSource: "auto"
+              groupPathsBy: "tag"
             },
           } satisfies OpenApiPlugin.Options,
         }

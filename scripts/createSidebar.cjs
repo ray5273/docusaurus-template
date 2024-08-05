@@ -46,7 +46,16 @@ function generateSidebarConfig(dirPath, isRoot = true) {
     };
 }
 
-const sidebarConfig = generateSidebarConfig('./docs');
+const targetDir = process.argv[2] || './docs/';
+const sidebarConfig = generateSidebarConfig(targetDir);
+const validOptions = ['adr-architecture', 'userguide', 'srs']; // 사용자가 선택할 수 있는 옵션을 정의합니다.
+const userOption = process.argv[3]; // 커맨드 라인에서 사용자의 선택을 가져옵니다.
+
+if (!validOptions.includes(userOption)) {
+    console.error(`Invalid option. Please choose one of the following: ${validOptions.join(', ')}`);
+    process.exit(1);
+}
+
 // Check if version option is provided
 if (process.argv.includes('--version')) {
     const output = {
@@ -56,6 +65,7 @@ if (process.argv.includes('--version')) {
 
     fs.writeFileSync('./sidebar_version.json', JSON.stringify(output, null, 2));
 } else {
-    console.log("generated sidebar.json");
-    fs.writeFileSync('./sidebar.json', JSON.stringify(sidebarConfig, null, 2));
+    const targetFileName = "sidebar" + "-" + userOption + ".json";
+    console.log("generated " + targetFileName);
+    fs.writeFileSync(targetFileName, JSON.stringify(sidebarConfig, null, 2));
 }

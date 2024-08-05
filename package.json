@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "generate-sidebar": "node scripts/createSidebar.cjs",
+    "generate-sidebar-adr-architecture": "node scripts/createSidebar.cjs ./docs/adr-architecture adr-architecture",
+    "generate-api": "docusaurus gen-api-docs all",
     "typecheck": "tsc"
   },
   "dependencies": {
