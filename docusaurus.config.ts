@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: 'Docusaurus Template',
@@ -36,6 +37,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          docItemComponent: "@theme/ApiItem",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -54,8 +56,27 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+  plugins: [
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "api", // plugin id
+        docsPluginId: "classic", // configured for preset-classic
+        config: {
+          petstore: {
+            specPath: "resources/swagger_example.yaml",
+            outputDir: "docs/swagger",
+            sidebarOptions: {
+              categoryLinkSource: "auto"
+            },
+          } satisfies OpenApiPlugin.Options,
+        }
+      },
+    ]
+  ],
   themes: [
     // ... Your other themes.
+    "docusaurus-theme-openapi-docs",
     '@docusaurus/theme-mermaid',
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
@@ -92,7 +113,12 @@ const config: Config = {
           label: 'ADR & Architecture Design',
         },
         {to: '/blog', label: 'Userguide & SRS', position: 'left'},
-        {to: '/blog', label: 'API Documentation', position: 'left'},
+        {
+          type: 'docSidebar',
+          label: 'API Documentation',
+          sidebarId: 'apisidebar',
+          position: 'left'
+        },
         {
           href: 'https://github.com/ray5273/docusaurus-template',
           label: 'GitHub',

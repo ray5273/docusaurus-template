@@ -10,3 +10,9 @@
 [submodule "versioned_docs/version-1.0.0/Github-Review-Dashboard-and-Alarm-Bot"]
 	path = versioned_docs/version-1.0.0/Github-Review-Dashboard-and-Alarm-Bot
 	url = https://github.com/ray5273/Github-Review-Dashboard-and-Alarm-Bot.git
+[submodule "userguide/pos-essential"]
+	path = userguide/pos-essential
+	url = https://github.com/poseidonos/pos-essential
+[submodule "docs/pos-essential"]
+	path = docs/pos-essential
+	url = https://github.com/poseidonos/pos-essential
