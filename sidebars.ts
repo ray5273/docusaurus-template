@@ -4,7 +4,6 @@ import path from "node:path";
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 // @ts-ignore
 import {SidebarConfig} from "@docusaurus/plugin-content-docs/src/sidebars/types";
-import apisidebar from "./docs/api/sidebar";
 
 /**
  * Creating a sidebar enables you to:
