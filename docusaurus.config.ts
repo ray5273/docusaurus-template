@@ -74,26 +74,16 @@ const config: Config = {
           } satisfies OpenApiPlugin.Options,
         }
       },
-    ]
+    ],
+    [require.resolve('docusaurus-lunr-search'), {
+          languages: ['en','ko'] // language codes
+          }
+    ],
   ],
   themes: [
     // ... Your other themes.
     "docusaurus-theme-openapi-docs",
     '@docusaurus/theme-mermaid',
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-      ({
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        // For Docs using Chinese, The `language` is recommended to set to:
-        // ```
-        // language: ["en","kr"],
-        // ```
-      }),
-    ],
-
   ],
   markdown: {
     mermaid: true,
