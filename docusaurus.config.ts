@@ -104,7 +104,18 @@ const config: Config = {
           position: 'left',
           label: 'ADR & Architecture Design',
         },
-        {to: '/blog', label: 'Userguide & SRS', position: 'left'},
+        {
+          type: 'docSidebar',
+          label: 'User Guide',
+          sidebarId: 'sidebarUserguide',
+          position: 'left'
+        },
+        {
+          type: 'docSidebar',
+          label: 'SRS',
+          sidebarId: 'sidebarSRS',
+          position: 'left'
+        },
         {
           type: 'docSidebar',
           label: 'API Documentation',

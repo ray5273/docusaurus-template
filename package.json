@@ -13,6 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "generate-sidebar-adr-architecture": "node scripts/createSidebar.cjs ./docs/adr-architecture adr-architecture",
+    "generate-sidebar-userguide": "node scripts/createSidebar.cjs ./docs/userguide/packer-qemu-template userguide",
+    "generate-sidebar-srs": "node scripts/createSidebar.cjs ./docs/srs/portfolio-assist srs",
     "generate-api": "docusaurus gen-api-docs all",
     "typecheck": "tsc"
   },

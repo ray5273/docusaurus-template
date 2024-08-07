@@ -4,3 +4,9 @@
 [submodule "docs/adr-architecture/Github-Review-Dashboard-and-Alarm-Bot"]
 	path = docs/adr-architecture/Github-Review-Dashboard-and-Alarm-Bot
 	url = https://github.com/ray5273/Github-Review-Dashboard-and-Alarm-Bot
+[submodule "docs/userguide/packer-qemu-template"]
+	path = docs/userguide/packer-qemu-template
+	url = https://github.com/ray5273/packer-qemu-template
+[submodule "docs/srs/portfolio-assist"]
+	path = docs/srs/portfolio-assist
+	url = https://github.com/ray5273/Portfolio-Assistant.git

@@ -28,8 +28,10 @@ jobs:
         run: npx docusaurus-mdx-checker
 
       - name: Generate sidebar for main branch
-        run:
+        run: |
           npm run generate-sidebar-adr-architecture
+          npm run generate-sidebar-userguide
+          npm run generate-sidebar-srs
 
       - name: Generate version 1.1.0
         run:
