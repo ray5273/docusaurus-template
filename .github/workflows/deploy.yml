@@ -33,6 +33,11 @@ jobs:
           npm run generate-sidebar-userguide
           npm run generate-sidebar-srs
 
+      - name: Generate translation files
+        run: |
+          npm run write-translations -- --locale en
+          npm run write-translations -- --locale ko
+
       - name: Generate version 1.1.0
         run:
           npm run docusaurus docs:version 1.1.0
