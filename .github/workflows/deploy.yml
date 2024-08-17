@@ -38,9 +38,9 @@ jobs:
           npm run write-translations -- --locale en
           npm run write-translations -- --locale ko
 
-      - name: Generate version 1.1.0
-        run:
-          npm run docusaurus docs:version 1.1.0
+#      - name: Generate version 1.1.0
+#        run:
+#          npm run docusaurus docs:version 1.1.0
 
       - name: Build website
         run: npm run build
