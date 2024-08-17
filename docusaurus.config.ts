@@ -85,10 +85,10 @@ const config: Config = {
     "docusaurus-theme-openapi-docs",
     '@docusaurus/theme-mermaid',
   ],
-  i18n: {
-    defaultLocale: 'ko',
-    locales: ['en', 'ko'],
-  },
+  // i18n: {
+  //   defaultLocale: 'ko',
+  //   locales: ['en', 'ko'],
+  // },
   markdown: {
     mermaid: true,
   },
