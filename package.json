@@ -25,8 +25,6 @@
     "clsx": "^2.0.0",
     "docusaurus-lunr-search": "3.4.0",
     "docusaurus-mdx-checker": "3.0.0",
-    "docusaurus-plugin-openapi-docs": "3.0.1",
-    "docusaurus-theme-openapi-docs": "3.0.1",
     "lunr": "2.3.9",
     "lunr-languages": "1.14.0",
     "prism-react-renderer": "^2.3.0",

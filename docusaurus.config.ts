@@ -1,7 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+// import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: 'Docusaurus Template',
@@ -28,7 +28,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en'], // 'ko'
   },
 
   presets: [
@@ -38,7 +38,7 @@ const config: Config = {
         docs: {
           lastVersion: 'current',
           sidebarPath: './sidebars.ts',
-          docItemComponent: "@theme/ApiItem",
+          // docItemComponent: "@theme/ApiItem",
           routeBasePath: '/', // Serve the docs at the site's root
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -59,22 +59,22 @@ const config: Config = {
     ],
   ],
   plugins: [
-    [
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: "api", // plugin id
-        docsPluginId: "classic", // configured for preset-classic
-        config: {
-          petstore: {
-            specPath: "resources/swagger_example.yaml", // path to your spec file
-            outputDir: "docs/api", // path to generated docs
-            sidebarOptions: {
-              groupPathsBy: "tag"
-            },
-          } satisfies OpenApiPlugin.Options,
-        }
-      },
-    ],
+    // [
+    //   'docusaurus-plugin-openapi-docs',
+    //   {
+    //     id: "api", // plugin id
+    //     docsPluginId: "classic", // configured for preset-classic
+    //     config: {
+    //       petstore: {
+    //         specPath: "resources/swagger_example.yaml", // path to your spec file
+    //         outputDir: "docs/api", // path to generated docs
+    //         sidebarOptions: {
+    //           groupPathsBy: "tag"
+    //         },
+    //       } satisfies OpenApiPlugin.Options,
+    //     }
+    //   },
+    // ],
     [require.resolve('docusaurus-lunr-search'), {
           languages: ['en','ko'] // language codes
           }
@@ -82,13 +82,9 @@ const config: Config = {
   ],
   themes: [
     // ... Your other themes.
-    "docusaurus-theme-openapi-docs",
+    // "docusaurus-theme-openapi-docs",
     '@docusaurus/theme-mermaid',
   ],
-  // i18n: {
-  //   defaultLocale: 'ko',
-  //   locales: ['en', 'ko'],
-  // },
   markdown: {
     mermaid: true,
   },
@@ -120,12 +116,12 @@ const config: Config = {
           sidebarId: 'sidebarSRS',
           position: 'left'
         },
-        {
-          type: 'docSidebar',
-          label: 'API Documentation',
-          sidebarId: 'sidebarApi',
-          position: 'left'
-        },
+        // {
+        //   type: 'docSidebar',
+        //   label: 'API Documentation',
+        //   sidebarId: 'sidebarApi',
+        //   position: 'left'
+        // },
         {
           href: 'https://github.com/ray5273/docusaurus-template',
           label: 'GitHub',
