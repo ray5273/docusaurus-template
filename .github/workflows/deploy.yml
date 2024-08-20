@@ -32,7 +32,10 @@ jobs:
           npm run generate-sidebar-adr-architecture
           npm run generate-sidebar-userguide
           npm run generate-sidebar-srs
-
+#      - name: Test docusaurus version and build
+#        run: |
+#          npm run version
+#          npm run checkcmd
 #      - name: Generate translation files
 #        run: |
 #          npm run write-translations -- --locale en
