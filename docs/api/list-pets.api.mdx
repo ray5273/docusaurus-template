@@ -1,0 +1,190 @@
+---
+id: list-pets
+title: "List all pets"
+description: "Returns a list of all pets."
+sidebar_label: "List all pets"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE2P2kAM/SvRnGnC0qoHTkUrVCFt21VpT4iDCYbMdiYzO+PwoYj/XjsJSyi72nKBsZ/tZ/uZWq0x5kF70q5UY/UTqQplTCAxOlLiNgkYk3ikmKqBch4DCHK2ZqwgHtnDDg8BLBKGqMaLWpX8aABWE3u1ZH6uMBz5cV3vGxy0rWxSVnaFQeoFjJWhmJDjn0KGYwI+VzogF92AiThQMS/QghrXio5eSumScIuBsRsXLFBr+jhSp9NS4qN3ZcQoEaPhUL6ueUzKBEKAozDwbU+545wlCRa8NzpvOs+eogTUtxSaeOmW0Mae3a2eMKerLhZKr9nQjInp+SCDJd3yY9d7fX3+pE5d+AUaKehyKw6C7Sv27jNQvKjCyQK3SM3uqOBH1rUdMezOe6yCYU9B5MdZBl6neADrDaa5s9nujmv1MfEN0FIUsHFCSTK3A79Lh+mQy5EmIyznTUwyeZzdaGSSRH12iizWaHmZxErEZL6HLc8nGbXJMNj4YzPnFnSOF+p9Rg0m6/YLebPfTq+Sf15574LM5ar5/X5/1Vd8gbEItAA7y5ceSnbBukFWXr+KB5ZOx/imCDTe1IVt1oXG7GF2P/0+n37gkLQga5Rs0btIFspe4ge52PO5/jvF+qLnd468kw3hgTJvgI/31PGsO60sVFOB91owCXnX9Qoi/g7mdBJze+uioLWOsDK9y32T1P/9E7xK7g8ee/82OzCVYBrh7SBoIcBklowsENZ8TcKsDZrkOfp+1M2pS5aXi/k6/cXD/wu/ocPq
+sidebar_class_name: "get api-method"
+info_path: api/sample-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List all pets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/pets"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a list of all pets.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"limit","in":"query","description":"Maximum number of results to return","required":false,"schema":{"type":"integer","format":"int32"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          An array of pets
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"tag"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"id\": 0,\n    \"name\": \"string\",\n    \"tag\": \"string\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

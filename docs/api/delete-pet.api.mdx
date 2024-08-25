@@ -1,0 +1,113 @@
+---
+id: delete-pet
+title: "Delete a pet"
+description: "Deletes a pet from the store."
+sidebar_label: "Delete a pet"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNU8Fu2zAM/RVBpw3I7LQIdvBpxZJDgGIrlu5U5KA6dGzMtlSJThoY/vc92m7rtGuxk2Xqie/xkWz1jkLqC8eFrXWil1QSU1BGOWKVeVspzkkFtp4iPdPWkTeCXe+A3vXoG2LcOONNhT8fdHLX6ho/QCALkDNdSHJnOMf5nPEW6ddLZbOeSFjZqiExsJ4emsITyNg3NNMhzakyOmk1n5wQFDXTnjygmfWV4SH0daG7bivPg7N1oCAvLucL+ZzTQ/zIttPdTC/ew9QWdtimBgowFJrbFwf68lFbomMUEOK2L7tDOJA/PFnS+BKInNklcWxcEdGjqVxJUWqr+HAB+ikmvAPaipmZFZWSeVB4Ec2jOei44FJc2fRv1NXN+o3fVyoUT5eD1RUcYnSV1OZo9jBTXQ7JyFfhZ7ZBCUVKL9KninpMDHBqazYpi6yx9ZJ/0zhnvYzHWfHH4/GsrvAMQ3MLAY6RbxOUtKeEELRzyuIMRmJU/IbE9LeR9ft4fBri6/X31Y/N6gueRDlXZd9QZwNXpp4kHjZhWITXJrZ9uVTzf2zMOKdMjxy70mARulFoOw7NnWxJADQZtgUdziFHLtr23gT67cuuk/BDQ/6EOI4H4wtzL83GZO2KIGcMZGbKQB+o/fRrXKjP6uPF+6fsMWjqkxYFZSN/OP6h0/Oud9vpfixX16vbFSz+C4yAego=
+sidebar_class_name: "delete api-method"
+info_path: api/sample-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a pet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/pets/{petId}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a pet from the store.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"petId","in":"path","description":"The ID of the pet to delete","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          Pet deleted
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Pet not found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
