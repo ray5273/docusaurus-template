@@ -28,3 +28,41 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/*
+
+  Add a custom icon for sidebar directories
+
+ */
+.icon > div::before {
+  content: '';
+  display: inline-block;
+  margin: auto -8px auto 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.directory-icon > div::before {
+  background: url('/static/img/directory.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/*
+
+  Add a custom icon for sidebar documents
+
+*/
+.icon > a::before {
+  content: '';
+  display: inline-block;
+  margin: auto 2px auto -4px;
+  width: 20px;
+  height: 20px;
+}
+.document-icon > a::before {
+  background: url('/static/img/document.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

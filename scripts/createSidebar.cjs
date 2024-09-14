@@ -22,7 +22,15 @@ function generateSidebarConfig(dirPath, isRoot = true) {
     const mdFiles = fs.readdirSync(dirPath).filter(file => file.endsWith('.md')).map(file => `${dirPath}/${file.slice(0, -3)}`);
     if (mdFiles.length > 0) {
         // docs 부분 제거필요
-        items.push(...mdFiles.map(file => file.replace(/\\/g, '/').replace('./', '').replace('docs/', '')));
+        items.push(...mdFiles.map(file =>
+        {
+            const label = file.replace(/\\/g, '/').replace('./','').replace('docs/','');
+            return {
+                type: 'doc',
+                id: label,
+                className: 'icon document-icon',
+            };
+        }));
     }
 
     for (const subDir of subDirs) {
@@ -42,6 +50,7 @@ function generateSidebarConfig(dirPath, isRoot = true) {
     return {
         type: 'category',
         label: path.basename(dirPath),
+        className: 'icon directory-icon',
         items: items,
     };
 }
