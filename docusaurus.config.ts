@@ -9,7 +9,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://ray5273.github.io',
+  url: 'http://host.docker.internal',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/docusaurus-template/',
@@ -22,7 +22,6 @@ const config: Config = {
 
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'ignore',
-
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -30,16 +29,29 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'], // 'ko'
   },
-
   presets: [
     [
       'classic',
       {
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes('/page/'));
+          },
+        },
         docs: {
           lastVersion: 'current',
           sidebarPath: './sidebars.ts',
           docItemComponent: "@theme/ApiItem",
           routeBasePath: '/', // Serve the docs at the site's root
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -72,23 +84,80 @@ const config: Config = {
               groupPathsBy: "tag"
             },
           } satisfies OpenApiPlugin.Options,
-        }
+        },
       },
     ],
-    [require.resolve('docusaurus-lunr-search'), {
-          languages: ['en','ko'] // language codes
-          }
+    [
+      'docusaurus-plugin-ackee-v3',
+      {
+        // Ackee domain ID
+        domainId: 'd9aac0fc-0afa-4dcf-9667-e798568642f8',
+
+        // URL to your Ackee server
+        // MUST NOT END WITH SLASH ('/')
+        server: 'http://host.docker.internal:3000',
+
+        // Enable or disable tracking of personal data (OS, device, browser, screen size, user language)
+        detailed: true,
+
+        // Enable or disable tracking when on localhost
+        ignoreLocalhost: false,
+
+        // Enable or disable the tracking of your own visits
+        // Enabled by default, should be turned off when using a wildcard Access-Control-Allow-Origin header
+        // Some browsers may strictly block third-party cookies and this option will have no impact in this situation
+        ignoreOwnVisits: false,
+      },
+    ],
+    [
+      'docusaurus-plugin-comentario-v3',
+      {
+        server: 'http://localhost:8080',
+        autoNonInteractiveSSO: 'false',
+        noFonts: 'false',
+        cssOverride: 'false',
+      },
     ],
   ],
   themes: [
     // ... Your other themes.
     "docusaurus-theme-openapi-docs",
     '@docusaurus/theme-mermaid',
+    'docusaurus-theme-search-typesense',
+    'docusaurus-plugin-matomo',
   ],
   markdown: {
     mermaid: true,
   },
   themeConfig: {
+    matomo: {
+      matomoUrl: 'http://localhost:8085/',
+      siteId: '1',
+      phpLoader: 'matomo.php',
+      jsLoader: 'matomo.js',
+    },
+    typesense: {
+      // Replace this with the name of your index/collection.
+      // It should match the "index_name" entry in the scraper's "config.json" file.
+      typesenseCollectionName: 'mycollection',
+
+      typesenseServerConfig: {
+        nodes: [
+          {
+            host: 'host.docker.internal',
+            port: 8108,
+            protocol: 'http',
+          },
+        ],
+        apiKey: 'xyz',
+      },
+
+      // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
+      typesenseSearchParameters: {},
+
+      // Optional
+      contextualSearch: true,
+    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
