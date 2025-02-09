@@ -112,10 +112,7 @@ const config: Config = {
     [
       'docusaurus-plugin-comentario-v3',
       {
-        server: 'http://localhost:8080',
-        autoNonInteractiveSSO: 'false',
-        noFonts: 'false',
-        cssOverride: 'false',
+        server: 'http://localhost:8081',
       },
     ],
   ],
