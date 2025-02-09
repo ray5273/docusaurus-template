@@ -33,6 +33,7 @@
     "docusaurus-lunr-search": "3.4.0",
     "docusaurus-mdx-checker": "3.0.0",
     "docusaurus-plugin-ackee-v3": "^0.0.1",
+    "docusaurus-plugin-comentario-v3": "^1.0.1",
     "docusaurus-plugin-matomo": "^0.0.8",
     "docusaurus-plugin-openapi-docs": "4.2.0",
     "docusaurus-theme-openapi-docs": "4.2.0",
