@@ -8,19 +8,50 @@ on:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
-  test-deploy:
-    name: Test deployment
+  build:
+    name: Build Docusaurus
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
         with:
+          submodules: true
           fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Test build website
-        run: yarn build
+        run: npm install --frozen-lockfile
+
+      - name: Check markdown file check
+        run: npx docusaurus-mdx-checker
+
+      - name: Generate sidebar for main branch
+        run: |
+          npm run generate-sidebar-adr-architecture
+          npm run generate-sidebar-userguide
+          npm run generate-sidebar-srs
+
+      - name: Build website
+        run: npm run build
+
+      - name: Add Homebrew to PATH
+        run: |
+          echo "/opt/homebrew/bin" >> $GITHUB_PATH
+          echo "PATH after modification: $PATH"
+
+      - name: Verify GNU Tar
+        run: |
+          gtar --version
+          which gtar
+          # Your additional commands using gtar
+
+      - name: Use GNU Tar
+        run: |
+          gtar --version
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
