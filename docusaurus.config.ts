@@ -153,7 +153,8 @@ const config: Config = {
       typesenseSearchParameters: {
         query_by:
           'hierarchy.lvl0,hierarchy.lvl1,hierarchy.lvl2,hierarchy.lvl3,hierarchy.lvl4,hierarchy.lvl5,hierarchy.lvl6,content,embedding',
-        prefix: false,
+        prefix: true,
+        sort_by: '_text_match:desc,_vector_distance:asc',
       },
 
       // Optional
