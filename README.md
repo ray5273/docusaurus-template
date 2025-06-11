@@ -68,7 +68,7 @@ Example:
       "type": "float[]",
       "embed": {
         "from": ["content"],
-        "model_config": {"model_name": "typesense/gte-small"}
+        "model_config": {"model_name": "ts/gte-small"}
       }
     }
   ]
