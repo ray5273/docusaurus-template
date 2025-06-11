@@ -150,7 +150,11 @@ const config: Config = {
       },
 
       // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
-      typesenseSearchParameters: {},
+      typesenseSearchParameters: {
+        query_by:
+          'hierarchy.lvl0,hierarchy.lvl1,hierarchy.lvl2,hierarchy.lvl3,hierarchy.lvl4,hierarchy.lvl5,hierarchy.lvl6,content,embedding',
+        prefix: false,
+      },
 
       // Optional
       contextualSearch: true,

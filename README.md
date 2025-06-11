@@ -49,3 +49,36 @@ npm run docusaurus docs:version {version}
 ```bash
 npm run docusaurus gen-api-docs all
 ```
+
+## Typesense DocSearch with Embeddings
+
+DocSearch can generate vector embeddings for your documents and store them in
+Typesense. To enable this, update `docsearch.config.json` with a custom
+`field_definitions` section and add an `embedding` field. You also need to pass a
+`query_by` list including the `embedding` field through
+`typesenseSearchParameters` in `docusaurus.config.ts`.
+
+Example:
+
+```json
+"custom_settings": {
+  "field_definitions": [
+    {
+      "name": "embedding",
+      "type": "float[]",
+      "embed": {
+        "from": ["content"],
+        "model_config": {"model_name": "typesense/gte-small"}
+      }
+    }
+  ]
+}
+
+Using a built-in model such as `typesense/gte-small` does not require an API key.
+
+// docusaurus.config.ts
+typesenseSearchParameters: {
+  query_by: "hierarchy.lvl0,hierarchy.lvl1,hierarchy.lvl2,hierarchy.lvl3,hierarchy.lvl4,hierarchy.lvl5,hierarchy.lvl6,content,embedding",
+  prefix: false,
+}
+```
