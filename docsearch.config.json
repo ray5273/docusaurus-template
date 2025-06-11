@@ -1,0 +1,37 @@
+{
+  "index_name": "mycollection",
+  "start_urls": [
+    "https://ray5273.github.io/docusaurus-template"
+  ],
+  "js_wait": 2,
+  "js_render": true,
+  "sitemap_alternate_links": true,
+  "selectors": {
+    "default": {
+      "lvl0": "h1",
+      "lvl1": "h2",
+      "lvl2": "h3",
+      "lvl3": "h4",
+      "lvl4": "h5",
+      "text": "p, .theme-default-content ul li, .theme-default-content table tbody tr"
+    }
+  },
+  "strip_chars": " .,;:#",
+  "custom_settings": {
+    "separatorsToIndex": "_",
+    "attributesForFaceting": [
+      "language",
+      "version",
+      "type",
+      "docusaurus_tag"
+    ],
+    "attributesToRetrieve": [
+      "hierarchy",
+      "content",
+      "anchor",
+      "url",
+      "url_without_anchor",
+      "type"
+    ]
+  }
+}
