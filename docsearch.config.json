@@ -52,7 +52,7 @@
             "tags"
           ],
           "model_config": {
-            "model_name": "typesense/gte-small"
+            "model_name": "ts/gte-small"
           }
         }
       }
