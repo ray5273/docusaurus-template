@@ -79,6 +79,7 @@ Using a built-in model such as `typesense/gte-small` does not require an API key
 // docusaurus.config.ts
 typesenseSearchParameters: {
   query_by: "hierarchy.lvl0,hierarchy.lvl1,hierarchy.lvl2,hierarchy.lvl3,hierarchy.lvl4,hierarchy.lvl5,hierarchy.lvl6,content,embedding",
-  prefix: false,
+  prefix: true,
+  sort_by: "_text_match:desc,_vector_distance:asc",
 }
 ```
