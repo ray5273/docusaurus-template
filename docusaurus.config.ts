@@ -95,7 +95,7 @@ const config: Config = {
 
         // URL to your Ackee server
         // MUST NOT END WITH SLASH ('/')
-        server: 'https://ray5273.duckdns.org',
+        server: 'http://localhost:8084',
 
         // Enable or disable tracking of personal data (OS, device, browser, screen size, user language)
         detailed: true,
@@ -141,9 +141,9 @@ const config: Config = {
       typesenseServerConfig: {
         nodes: [
           {
-            host: 'host.docker.internal',
-            port: 8108,
-            protocol: 'http',
+            host: 'ray5273.duckdns.org',
+            port: 443,
+            protocol: 'https',
           },
         ],
         apiKey: 'xyz',
