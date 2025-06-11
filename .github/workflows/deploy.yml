@@ -61,6 +61,9 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      - name: Checkout Repository 
+        uses: actions/checkout@v4
+
       - name: Run DocSearch Scraper
         uses: celsiusnarhwal/typesense-scraper@v2
         with:
