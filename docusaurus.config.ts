@@ -95,7 +95,7 @@ const config: Config = {
 
         // URL to your Ackee server
         // MUST NOT END WITH SLASH ('/')
-        server: 'http://host.docker.internal:3000',
+        server: 'https://ray5273.duckdns.org',
 
         // Enable or disable tracking of personal data (OS, device, browser, screen size, user language)
         detailed: true,
