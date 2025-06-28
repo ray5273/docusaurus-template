@@ -18,7 +18,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: test1
         run: npm install css-select@latest @docusaurus/plugin-content-blog@latest
