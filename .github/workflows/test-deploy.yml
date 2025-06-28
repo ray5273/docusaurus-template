@@ -20,13 +20,16 @@ jobs:
           node-version: 20
           cache: yarn
 
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      
       - name: test1
         run: yarn add css-select@latest @docusaurus/plugin-content-blog@latest
 
       - name: test2
         run: yarn upgrade @docusaurus/core @docusaurus/preset-classic
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        
       - name: Test build website
         run: yarn build
