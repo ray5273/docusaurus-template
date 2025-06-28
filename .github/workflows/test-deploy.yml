@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   test-deploy:
@@ -18,18 +16,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
-
+          cache: npm
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
-      
       - name: test1
-        run: yarn add css-select@latest @docusaurus/plugin-content-blog@latest
+        run: npm install css-select@latest @docusaurus/plugin-content-blog@latest
 
       - name: test2
-        run: yarn upgrade @docusaurus/core @docusaurus/preset-classic
-        
+        run: npm update @docusaurus/core @docusaurus/preset-classic
+
       - name: Test build website
-        run: yarn build
+        run: npm run build
