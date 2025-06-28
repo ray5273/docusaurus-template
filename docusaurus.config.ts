@@ -112,7 +112,7 @@ const config: Config = {
     [
       'docusaurus-plugin-comentario-v3',
       {
-        server: 'http://localhost:8081',
+        server: 'http://ray5273.duckdns.org:8443',
       },
     ],
   ],
