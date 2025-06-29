@@ -106,7 +106,7 @@ const config: Config = {
     [
       'docusaurus-plugin-comentario-v3',
       {
-        server: 'http://ray5273.duckdns.org:8443',
+        server: 'https://ray5273.duckdns.org:8443',
       },
     ],
   ],
