@@ -56,7 +56,10 @@ function generateSidebarConfig(dirPath, isRoot = true) {
 }
 
 const targetDir = process.argv[2] || './docs/';
-const sidebarConfig = generateSidebarConfig(targetDir);
+let sidebarConfig = generateSidebarConfig(targetDir);
+if (!sidebarConfig) {
+    sidebarConfig = [];
+}
 const validOptions = ['adr-architecture', 'userguide', 'srs']; // 사용자가 선택할 수 있는 옵션을 정의합니다.
 const userOption = process.argv[3]; // 커맨드 라인에서 사용자의 선택을 가져옵니다.
 
