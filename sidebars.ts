@@ -20,9 +20,21 @@ const sidebarJsonPath = path.resolve(__dirname, './sidebar-adr-architecture.json
 const sidebarJsonUserguidePath = path.resolve(__dirname, './sidebar-userguide.json');
 const sidebarJsonSRSPath = path.resolve(__dirname, './sidebar-srs.json');
 
-const tutorialSidebar : SidebarConfig = JSON.parse(fs.readFileSync(sidebarJsonPath, 'utf-8'));
-const sidebarUserguide : SidebarConfig = JSON.parse(fs.readFileSync(sidebarJsonUserguidePath, 'utf-8'));
-const sidebarSRS : SidebarConfig = JSON.parse(fs.readFileSync(sidebarJsonSRSPath, 'utf-8'));
+const parseSidebar = (filePath: string): SidebarConfig => {
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+  try {
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    return data ?? [];
+  } catch (e) {
+    return [];
+  }
+};
+
+const tutorialSidebar: SidebarConfig = parseSidebar(sidebarJsonPath);
+const sidebarUserguide: SidebarConfig = parseSidebar(sidebarJsonUserguidePath);
+const sidebarSRS: SidebarConfig = parseSidebar(sidebarJsonSRSPath);
 
 const sidebars: SidebarsConfig = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
@@ -31,8 +43,8 @@ const sidebars: SidebarsConfig = {
   // But you can create a sidebar manually
   tutorialSidebar: tutorialSidebar,
   sidebarApi: apisidebar,
-  sidebarUserguide : sidebarUserguide,
-    sidebarSRS : sidebarSRS,
+  sidebarUserguide: sidebarUserguide,
+  sidebarSRS: sidebarSRS,
 };
 
 export default sidebars;

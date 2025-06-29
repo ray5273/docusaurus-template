@@ -67,5 +67,8 @@
   },
   "engines": {
     "node": ">=18.0"
+  },
+  "overrides": {
+    "css-select": "5.1.0"
   }
 }

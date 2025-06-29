@@ -169,18 +169,6 @@ const config: Config = {
         },
         {
           type: 'docSidebar',
-          label: 'User Guide',
-          sidebarId: 'sidebarUserguide',
-          position: 'left'
-        },
-        {
-          type: 'docSidebar',
-          label: 'SRS',
-          sidebarId: 'sidebarSRS',
-          position: 'left'
-        },
-        {
-          type: 'docSidebar',
           label: 'API Documentation',
           sidebarId: 'sidebarApi',
           position: 'left'
