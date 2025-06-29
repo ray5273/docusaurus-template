@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   test-deploy:
@@ -18,9 +16,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install
+
+      - name: test1
+        run: npm install css-select@latest @docusaurus/plugin-content-blog@latest
+
+      - name: test2
+        run: npm update @docusaurus/core @docusaurus/preset-classic
+
+      - name: Generate sidebar for main branch
+        run: |
+          npm run generate-sidebar-adr-architecture
+          npm run generate-sidebar-userguide
+          npm run generate-sidebar-srs
+
       - name: Test build website
-        run: yarn build
+        run: npm run build
