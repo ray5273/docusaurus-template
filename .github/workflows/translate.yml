@@ -1,0 +1,88 @@
+name: Translate Docs
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'docs/**/*.md'
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Translate markdown files
+        env:
+          TRANSLATE_API_URL: ${{ secrets.TRANSLATE_API_URL }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const SRC_DIR = path.resolve('docs');
+          const OUT_DIR = path.resolve('docs-en');
+          const TRANSLATE_API_URL = process.env.TRANSLATE_API_URL || 'http://localhost:11434/translate';
+
+          function walk(dir) {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            let files = [];
+            for (const entry of entries) {
+              if (entry.name.startsWith('.')) continue;
+              const res = path.join(dir, entry.name);
+              if (entry.isDirectory()) {
+                files = files.concat(walk(res));
+              } else if (entry.isFile() && res.endsWith('.md')) {
+                files.push(res);
+              }
+            }
+            return files;
+          }
+
+          function containsKorean(text) {
+            return /[가-힣]/.test(text);
+          }
+
+          async function translate(text) {
+            const response = await fetch(TRANSLATE_API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ text, target: 'en' })
+            });
+            if (!response.ok) throw new Error('Translation request failed: ' + response.status + ' ' + await response.text());
+            const data = await response.json();
+            return data.text || data.translation || '';
+          }
+
+          async function processFile(file) {
+            const original = fs.readFileSync(file, 'utf8');
+            if (!containsKorean(original)) return;
+            const translated = await translate(original);
+            const rel = path.relative(SRC_DIR, file);
+            const outFile = path.join(OUT_DIR, rel);
+            fs.mkdirSync(path.dirname(outFile), { recursive: true });
+            fs.writeFileSync(outFile, translated, 'utf8');
+            console.log('Translated ' + file + ' -> ' + outFile);
+          }
+
+          async function main() {
+            const files = walk(SRC_DIR);
+            for (const file of files) {
+              await processFile(file);
+            }
+          }
+
+          main().catch(err => { console.error(err); process.exit(1); });
+          NODE
+      - name: Commit translated docs
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add docs-en
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: add English translations"
+            git push
+          fi
